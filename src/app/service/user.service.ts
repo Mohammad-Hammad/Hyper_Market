@@ -9,7 +9,6 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class UserService {
-
   data:any=[{}]
   display_Image:any;
   selectedCustomer:any={};
@@ -21,10 +20,9 @@ export class UserService {
    uploadAttachment(file:FormData)
    {
   
-     this.http.post('https://localhost:44338/api/user/UploadImg/',file)
+     this.http.post('https://localhost:44338/api/user/UploadImgCustomer/',file)
      .subscribe((res:any)=>{
        if(res)
-       console.log(res);
        this.display_Image=res.imageName;
      },err=>{
        this.toaster.error(err.message , err.status);
@@ -53,7 +51,7 @@ export class UserService {
 
   updateCustomer(custId:any){
     custId.imageName=this.display_Image;
-    console.log('custId '+custId);
+    console.log('custId '+custId.imageName);
     
     this.http.put('https://localhost:44338/api/User/updateCustomer',custId).subscribe((res)=>{
       console.log('inside update : '+JSON.stringify(res) );
