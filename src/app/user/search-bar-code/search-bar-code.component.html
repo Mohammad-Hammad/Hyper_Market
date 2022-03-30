@@ -1,0 +1,37 @@
+<app-dashboard></app-dashboard>
+
+<div id="form">
+    <form style="display: inline;" class="form-inline">
+        
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="input" class="sr-only">Bar Code</label>
+          <input [value]="barcode" (change)="InputValue($event)"  type="text" class="form-control" id="input" placeholder="Bar Code">
+        </div>
+        <input value="Search" type="button" (click)="search()" class="btn btn-primary mb-2">
+        <!-- <button type="submit" (click)="search()" class="btn btn-primary mb-2">Search</button> -->
+      </form>
+    </div>
+    
+    <ng-template #openCard>
+    
+      
+      <div class="product-card" *ngFor="let pro of user.data">
+        <div (click)="log(user.data)" class="badge">Hot</div>
+        <div class="product-tumb">
+          
+          <img src="../../../assets/images/{{pro.imageName}}" alt="">
+        </div>
+        <div class="product-details">
+          <h4><a href="">{{pro.productname}}</a></h4>
+          <h4><a href="">{{pro.barCode}}</a></h4>
+          <div class="product-bottom-details">
+            <div class="product-price">${{pro.proPrice}}</div>
+            <div class="product-links">
+              <a href=""><i class="fa fa-heart"></i></a>
+              <a href=""><i class="fa fa-shopping-cart"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </ng-template>

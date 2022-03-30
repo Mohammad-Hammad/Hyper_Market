@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div id="login-box">
+<form [formGroup]="RegisterUser">   
+   <div class="left">
+      <h1>Sign up</h1>
+      
+      <input type="text" matInput  formControlName="FirstName" placeholder="FirstName" />
+      <input type="text"matInput  formControlName="LastName" placeholder="LaststName" />
+     
+      <input type="text" matInput  formControlName="Email" placeholder="E-mail" />
+      <input type="text" matInput  formControlName="UserName" placeholder="UserName" />
+      <input type="password" matInput  formControlName="Password" placeholder="Password" />
+
+      <input type="file" #file formControlName="ImageName"
+      placeholder="choose Image"
+      (change)="uploadImage(file.files)" style="display:none ;">
+       <button class="btn btn-primary" (click)="file.click()">Upload Image</button>
+
+       <input class="btn btn-primary" type="submit"  (click)="sendData()" value="Sign me up" />
+    </div>
+  </form>
+
+    <div class="right">
+      <span class="loginwith">Sign in with<br />social network</span>
+      
+      <button class="social-signin facebook">Log in with facebook</button>
+      <button class="social-signin twitter">Log in with Twitter</button>
+      <button class="social-signin google">Log in with Google+</button>
+    </div>
+    <div class="or">OR</div>
+  </div>
+<app-footer></app-footer>
