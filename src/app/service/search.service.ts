@@ -13,7 +13,7 @@ data:any=[]
 
   search(body:any){
     debugger;
-    this.http.post('https://localhost:44338/api/Admin/SearchDates/',body)
+    this.http.post('https://localhost:44338/api/Admin/SearchDates',body)
     .subscribe((res:any)=>{
       debugger;
       this.data=res;
@@ -21,7 +21,6 @@ data:any=[]
     },err=>{
       this.toastr.error('something error in Search');
     })
-
   }
 
 }

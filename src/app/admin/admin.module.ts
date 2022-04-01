@@ -17,6 +17,13 @@ import { MonthlyReportComponent } from './monthly-report/monthly-report.componen
 import { SearchComponent } from './search/search.component';
 import { ManageAdminsComponent } from './manage-admins/manage-admins.component';
 import { CreateAdminsComponent } from './create-admins/create-admins.component';
+import { ManagePagesComponent } from './manage-pages/manage-pages.component';
+import { ManageHomeComponent } from './manage-home/manage-home.component';
+import { ManageAboutComponent } from './manage-about/manage-about.component';
+import { ManageContactComponent } from './manage-contact/manage-contact.component';
+import { CreateHomeComponent } from './create-home/create-home.component';
+import { CreateAboutComponent } from './create-about/create-about.component';
+import { CreateContactComponent } from './create-contact/create-contact.component';
 
 
 @NgModule({
@@ -34,7 +41,14 @@ import { CreateAdminsComponent } from './create-admins/create-admins.component';
     MonthlyReportComponent,
     SearchComponent,
     ManageAdminsComponent,
-    CreateAdminsComponent
+    CreateAdminsComponent,
+    ManagePagesComponent,
+    ManageHomeComponent,
+    ManageAboutComponent,
+    ManageContactComponent,
+    CreateHomeComponent,
+    CreateAboutComponent,
+    CreateContactComponent
   ],
   imports: [
     CommonModule,

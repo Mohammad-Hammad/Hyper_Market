@@ -40,5 +40,8 @@ this.route.navigate(['admin/manage']);
   goToProfile(){
     this.route.navigate(['admin/Profile'])
   }
+  goTosearch(){
+    this.route.navigate(['admin/search'])
+  }
 }
 //

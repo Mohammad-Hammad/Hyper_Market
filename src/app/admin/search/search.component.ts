@@ -12,7 +12,7 @@ export class SearchComponent implements OnInit {
   constructor(public searchService:SearchService) { }
   SearchForm:FormGroup= new FormGroup({
     dateFrom :new FormControl(),
-    dateto :new FormControl(),
+    dateTo :new FormControl(),
   })
   ngOnInit(): void {
     

@@ -5,6 +5,7 @@ import { ContentComponent } from './content/content.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ManageAdminsComponent } from './manage-admins/manage-admins.component';
 import { ManageCategoriesComponent } from './manage-categories/manage-categories.component';
+import { ManageContactComponent } from './manage-contact/manage-contact.component';
 import { ManageProductsComponent } from './manage-products/manage-products.component';
 import { MonthlyReportComponent } from './monthly-report/monthly-report.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -59,7 +60,10 @@ const routes: Routes = [
   {
     path:'manageAdmin',
     component:ManageAdminsComponent
-  },
+  },{
+    path:'manageContact',
+    component:ManageContactComponent
+  }
 ];
 
 @NgModule({

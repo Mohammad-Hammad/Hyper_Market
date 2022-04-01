@@ -14,7 +14,7 @@ export class CreateProductsComponent implements OnInit {
     proName :new FormControl('',Validators.required),
     proPrice :new FormControl(),
     imageName :new FormControl('',Validators.required),
-    categoryID :new FormControl()
+    categoryID :new FormControl(),
   })
   ngOnInit(): void {
   }

@@ -14,17 +14,17 @@
             <thead>
             <tr>
                 
-                <th>orderID</th>
-                <th>totalPrice</th>
-                <th>orderAT</th>
-                <th>customerID</th>
+                <th>Order ID</th>
+                <th>Total Price</th>
+                <th>Ordered At</th>
+                <th>Customer ID</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let userregis of searchService.data">
                 <td>{{userregis.orderID}}</td>
                 <td>{{userregis.totalPrice}}</td>
-                <td>{{userregis.orderAT}}</td>
+                <td>{{userregis.orderAt}}</td>
                 <td>{{userregis.customerID}}</td>
             </tr>
         </tbody>
