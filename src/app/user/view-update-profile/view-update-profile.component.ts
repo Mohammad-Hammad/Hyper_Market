@@ -15,7 +15,7 @@ export class ViewUpdateProfileComponent implements OnInit {
 
   unique_name=this.customerObj.unique_name;
   
-  customer:any={}
+  customer:any={}  
 
   updateForm:FormGroup=new FormGroup({
     cusID:new FormControl(),
@@ -23,12 +23,16 @@ export class ViewUpdateProfileComponent implements OnInit {
     firstName:new FormControl(),
     lastName:new FormControl(),
     email:new FormControl(),
-    // Organization:new FormControl(),
-    // Location:new FormControl()
+    Organization:new FormControl({value: 'Tahaluf Al-Emarat', disabled: true}),
+    Location:new FormControl({value: 'United Arab Emirates, Abu Dhabi', disabled: true})
   })
   constructor(public user:UserService) { }
 
   ngOnInit(): void {
+
+   
+    this.user.getCustomerById( this.customerid)
+
     console.log(typeof(this.customerid));
     
     this.user.getCustomerById(this.customerid)
@@ -47,12 +51,11 @@ export class ViewUpdateProfileComponent implements OnInit {
     
   }
   
+  
   updateProfile()
   {
-    this.updateForm.controls['cusID'].setValue(this.customerid);   
-    this.user.updateCustomer(this.updateForm.value);
-    console.log(this.updateForm.value);
-    
+    this.updateForm.controls['cusID'].setValue(this.customerid); 
+    this.user.updateCustomer(this.updateForm.value);    
   }
    
 
