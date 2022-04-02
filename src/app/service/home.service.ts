@@ -117,5 +117,72 @@ this.toastr.success('Data Retrieved !!')
   })
   
     }
+    getCart(id:number)
+    {
+  //show spinner
+  this.spinner.show();
+  //hits api
+  this.http.get('https://localhost:44338/api/User/getcart/'+id).subscribe((res)=>{
+  this.product=res;
+  //hide spinner
+  this.spinner.hide();
+  //toaster
+  this.toastr.success('Data Retrieved !!')
+  }, err=>{ // في حال كان في error
+    this.spinner.hide();
+    this.toastr.error('Something want worning !!');
+  })
+  
+    }
+    DeleteProductCart(data :any){
+   
+      
+      this.http.post('https://localhost:44338/api/User/deletecart',data).subscribe((res:any)=>{
 
+
+      this.toastr.success(' Delete Successfuly !!')
+
+       }, err=>{ 
+
+      // this.toastr.error('Something want worning !!');
+      })
+  
+}
+AddProductCart(data :any){
+   
+      
+  this.http.post('https://localhost:44338/api/User/addtocart',data).subscribe((res:any)=>{
+
+    this.toastr.success(' Add Product Successfuly !!')
+   }, err=>{ 
+   this.toastr.error('Something want worning !!');
+  })
+
+}
+total:any=[];
+getTotalCart(id:number)
+{
+//show spinner
+this.spinner.show();
+//hits api
+this.http.get('https://localhost:44338/api/User/GetTotalCustomer/'+id).subscribe((res)=>{
+this.total=[res];
+//hide spinner
+this.spinner.hide();
+//toaster
+this.toastr.success('Data Retrieved !!')
+}, err=>{ // في حال كان في error
+this.spinner.hide();
+this.toastr.error('Something want worning !!');
+})
+
+}
+updateCart(body:any){
+  debugger
+  this.http.put('https://localhost:44338/api/User/UpdateQuantity',body).subscribe((res)=>{
+    this.toastr.success('Updated Successfully :) ')
+  },err=>{
+    this.toastr.error('something error ');
+  })
+}
 }

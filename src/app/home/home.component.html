@@ -71,8 +71,8 @@
                         <h2 class="mb-3"  style="font-weight: bold;">{{item2.proName}}</h2>
                         <h3  style="font-weight: bold;">price : {{item2.proPrice}}$</h3>
                         <h4  style="font-weight: bold;">Barcode:{{item2.barCode}}</h4>
-                        <p style="display:none ;">{{item2.proID}}</p>
-                        <a class="fw-medium"  href=""> <button class="btn btn-primary" > Add Cart </button><i class="fa ms-2"></i></a>             
+                        <p style="display: none;">{{item2.proID}}</p>
+                        <a class="fw-medium"  href=""(click)="AddProduct(item2.proID)"> <button class="btn btn-primary" >  Add Cart <i class="fas fa-cart-plus"></i> </button><i class="fa ms-2"></i></a>             
                            </div>
                 </div>
             </div>

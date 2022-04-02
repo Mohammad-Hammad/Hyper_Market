@@ -4,11 +4,11 @@
 
  <div class="container-fluid page-header py-5 mb-5">
     <div class="container py-5">
-        <h1 class="display-3 text-white mb-3 animated slideInDown">Product</h1>
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Products</h1>
         <nav aria-label="breadcrumb animated slideInDown">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a class="text-white" href="home">Home</a></li>
-                <li class="breadcrumb-item"><a class="text-white" href="#">cart</a></li>
+                <li class="breadcrumb-item"><a class="text-white" href="cart">cart</a></li>
             </ol>
         </nav>
     </div>
@@ -49,9 +49,9 @@
                            <h1 class="mb-3"  style="font-weight: bold;">{{item.proName}}</h1>
                            <h3  style="font-weight: bold;">price : {{item.proPrice}}$</h3>
                            <h4  style="font-weight: bold;">Barcode:{{item.barCode}}</h4>
-                           <p style="display:none ;">{{item.proID}}</p>
-                           <a class="fw-medium"  href=""> <button class="btn btn-primary" > Add Cart </button><i class="fa ms-2"></i></a>             
-                    </div>
+                           <p style="display: none;">{{item.proId}}</p>
+                           <a class="fw-medium"  href=""(click)="AddProduct(item.proId)"> <button class="btn btn-primary" >  Add Cart <i class="fas fa-cart-plus"></i> </button><i class="fa ms-2"></i></a>             
+                          </div>
                 </div>
             </div>
         </div>

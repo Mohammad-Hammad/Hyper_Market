@@ -27,5 +27,15 @@ export class ProductComponent implements OnInit {
         this.home.searchProductName(objCourse);
 
     }
+    customerObj=JSON.parse(localStorage.getItem('user')||'');
+    customer_Id=parseInt(this.customerObj.nameid);
+    AddProduct(Id:number){
+      const body={
+        customerId:this.customer_Id,
+        ProId:Id
+      }
+     this.home.AddProductCart(body);
+     location.reload();
+    }
 
 }

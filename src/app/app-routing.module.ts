@@ -4,6 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { AdminModule } from './admin/admin.module';
 import { AuthModule } from './auth/auth.module';
 import { AutherizationGuardGuard } from './autherization-guard.guard';
+import { CartComponent } from './cart/cart.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
@@ -42,7 +43,11 @@ component:ContactComponent
             path:'product',
             component:ProductComponent,
             
-            }
+            },{
+              path:'cart',
+              component:CartComponent,
+              
+              }
       
       ];
 

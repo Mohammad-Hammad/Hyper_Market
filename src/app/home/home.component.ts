@@ -11,15 +11,24 @@ import { HomeService } from '../service/home.service';
 export class HomeComponent implements OnInit {
 
   constructor(private toaster:ToastrService , private spinner:NgxSpinnerService, public home:HomeService) { }
+  
+  customerObj=JSON.parse(localStorage.getItem('user')||'');
+  customer_Id=parseInt(this.customerObj.nameid);
 
   ngOnInit(): void {
-    this.spinner.show();
      this.home.getCategoryAndProduct();
-     this.toaster.success('Data Retrieved !!')
      setTimeout(() => {
       /** spinner ends after 5 seconds */
       this.spinner.hide();
     }, 5000);
+  }
+  AddProduct(Id:number){
+    const body={
+      customerId:this.customer_Id,
+      ProId:Id
+    }
+   this.home.AddProductCart(body);
+   location.reload();
   }
 
 }

@@ -15,6 +15,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { TokenInterceptor } from './Interceptor/token.interceptor';
 import { ProductComponent } from './product/product.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ProductComponent } from './product/product.component';
     AboutComponent,
     TestimonialComponent,
     ProductComponent,
+    CartComponent,
     
   ],
   imports: [
