@@ -10,8 +10,52 @@ export class HomeService {
   selectedProduct:any={};
   data:any=[]
   display_Image:any;
+  amount:any=[];
+  createCredit:any=[]
   constructor(private spinner:NgxSpinnerService,private http:HttpClient,private toastr:ToastrService) { }
 
+  updateAmount(body:any)
+  {
+    this.http.put('https://localhost:44338/api/user/UpdateAmount',body).subscribe((res:any)=>{
+      this.toastr.success('Updated');
+    }, err=>{
+      this.toastr.error("Something went wrong")
+    })
+  }
+  createCredits(data:any){
+    this.spinner.show();
+    //hit api
+    this.http.post('https://localhost:44338/api/user/newCredite',data).subscribe((res:any)=>{
+      this.createCredit=res;
+      console.log(res);
+      
+      this.spinner.hide();
+      this.toastr.success('Retrived');
+    }, err=>{
+      this.spinner.hide()
+      this.toastr.error("Something went wrong")
+      this.toastr.error(err.message , err.status)
+    })
+    window.location.reload();
+  }
+
+  GetAmount(id:number){
+    //show spinner
+    this.spinner.show();
+    //hit api
+    this.http.get('https://localhost:44338/api/user/CreditAmount/'+id).subscribe((res)=>{
+      console.log('inside servise '+[res]);
+      
+    this.amount=[res] ;
+      console.log(this.amount);
+      
+      this.spinner.hide();  
+      this.toastr.success('Amount retrived');
+    }, err=>{
+      this.spinner.hide()
+      this.toastr.error("Something  wrong")
+    })
+  }
 
   getAll(){
     //show spinner

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { HomeService } from '../service/home.service';
 import {render} from 'creditcardpayments/creditCardPayments'
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-cart',
@@ -58,17 +59,24 @@ onErorr = (event:ErrorEvent):void => {
   console.error('erorr',event.error);
 }
   quantity = new FormControl(); 
-
-  constructor(private toaster:ToastrService , private spinner:NgxSpinnerService, public home:HomeService) {
+  @ViewChild('Create') Create! :TemplateRef<any>
+  constructor(private toaster:ToastrService , private spinner:NgxSpinnerService, 
+    private dialog:MatDialog,public home:HomeService) {
    
    }
   customerObj=JSON.parse(localStorage.getItem('user')||'');
   customer_Id=parseInt(this.customerObj.nameid);
+  result:any=[];
+
+  CreateForm:FormGroup= new FormGroup({
+    cardName :new FormControl('',Validators.required),
+    cardNumber :new FormControl('',Validators.required),
+    CustomerID :new FormControl()
+  })
   ngOnInit(): void {
  this.home.getCart(this.customer_Id);
  this.home.getTotalCart(this.customer_Id); 
-
-
+ this.home.GetAmount(this.customer_Id);
 
   }
 
@@ -96,4 +104,59 @@ location.reload
 
   }
 
+
+  save()
+  {
+    this.CreateForm.controls['CustomerID'].setValue(this.customer_Id); 
+    this.home.createCredits(this.CreateForm.value);
+    // console.log(this.CreateForm.value);
+     this.CompletetoPay();
+    
+  }
+ 
+  CompletetoPay()
+  {
+    this.result=this.home.amount[0].amount - (this.home.total[0].totalPrice);   
+    this.toaster.success('operation compleate and your balance is: '+this.result);
+    const updateObj={
+      Amount:this.result,
+      CustomerID:this.customer_Id
+  
+    }
+    this.home.updateAmount(updateObj);
+    (this.home.total[0].totalPrice)=0
+  }
+
+
+  pay()
+  {
+    if(this.home.amount[0]===null)
+    {
+      this.dialog.open(this.Create)
+      console.log('null value');
+      
+    
+      
+    }
+    else if(this.home.amount!=null)
+    {
+      if(this.home.amount[0].amount>(this.home.total[0].totalPrice))
+      {
+      this.result=this.home.amount[0].amount - (this.home.total[0].totalPrice);   
+      this.toaster.success('operation compleate and your balance is: '+this.result);
+      const updateObj={
+        Amount:this.result,
+        CustomerID:this.customer_Id
+    
+      }
+      this.home.updateAmount(updateObj);
+      (this.home.total[0].totalPrice)=0;
+    
+    }  
+    else
+    this.toaster.warning('Your Card Balance Not Engouh')
+
+}
+
+  }
 }

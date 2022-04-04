@@ -100,7 +100,7 @@
           
             <div class="h3 font-weight-semibold text-center py-3">${{total.totalPrice| number: '1.3-3'}}</div>
             <hr>
-            <a class="btn btn-primary btn-block" href="#">
+            <a (click)="pay()" class="btn btn-primary btn-block" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card mr-2">
                     <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
                     <line x1="1" y1="10" x2="23" y2="10"></line>
@@ -110,3 +110,32 @@
 </div>
 <!-- Page cart end -->
 <app-footer></app-footer>
+
+<ng-template #Create>
+  <h2 mat-dialog-title>Create Credit</h2>
+  <mat-dialog-content class="mat-typography">
+      <form [formGroup]="CreateForm" class="example-form">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Card Name</mat-label>
+            <input type="text" matInput formControlName="cardName" placeholder="enter">
+           
+            <mat-error *ngIf="CreateForm.controls['cardName'] hasError('required')">
+              Card name is required
+            </mat-error> 
+          </mat-form-field>
+                <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Enter Card Number</mat-label>
+              <input type="number" matInput formControlName="cardNumber" placeholder="enter">
+             
+              <mat-error *ngIf="CreateForm.controls['cardNumber'] hasError('required')">
+                Card number is required
+              </mat-error> 
+            </mat-form-field>
+        </form>
+  
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save </button>
+  </mat-dialog-actions></ng-template>

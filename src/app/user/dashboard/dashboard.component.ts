@@ -28,6 +28,6 @@ export class DashboardComponent implements OnInit {
   clear()
   {
     localStorage.clear();
-    this.router.navigate(['home']);
+    this.router.navigate(['auth/login']);
   }
 }
