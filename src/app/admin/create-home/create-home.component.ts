@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { HomepageService } from 'src/app/service/homepage.service';
 
 @Component({
   selector: 'app-create-home',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateHomeComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private homepageService:HomepageService) { }
+  CreateForm:FormGroup= new FormGroup({
+    FirstText :new FormControl(),
+    SecondText :new FormControl(),
+    CatName :new FormControl(),
+    ProdName :new FormControl(),
+  })
   ngOnInit(): void {
   }
+  save(){
+    this.homepageService.createHome(this.CreateForm.value);
+  }
+
+
 
 }

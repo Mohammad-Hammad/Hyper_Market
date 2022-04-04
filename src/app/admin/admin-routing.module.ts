@@ -3,10 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AnuualReportComponent } from './anuual-report/anuual-report.component';
 import { ContentComponent } from './content/content.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ManageAboutComponent } from './manage-about/manage-about.component';
 import { ManageAdminsComponent } from './manage-admins/manage-admins.component';
 import { ManageCategoriesComponent } from './manage-categories/manage-categories.component';
 import { ManageContactComponent } from './manage-contact/manage-contact.component';
+import { ManageHomeComponent } from './manage-home/manage-home.component';
 import { ManageProductsComponent } from './manage-products/manage-products.component';
+import { ManageSlidersComponent } from './manage-sliders/manage-sliders.component';
 import { MonthlyReportComponent } from './monthly-report/monthly-report.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisteredDetailsComponent } from './registered-details/registered-details.component';
@@ -63,6 +66,15 @@ const routes: Routes = [
   },{
     path:'manageContact',
     component:ManageContactComponent
+  },{
+    path:'manageHome',
+    component:ManageHomeComponent
+  },{
+    path:'manageAbout',
+    component:ManageAboutComponent
+  },{
+    path:'manageSlider',
+    component:ManageSlidersComponent
   }
 ];
 

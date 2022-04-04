@@ -24,6 +24,8 @@ import { ManageContactComponent } from './manage-contact/manage-contact.componen
 import { CreateHomeComponent } from './create-home/create-home.component';
 import { CreateAboutComponent } from './create-about/create-about.component';
 import { CreateContactComponent } from './create-contact/create-contact.component';
+import { ManageSlidersComponent } from './manage-sliders/manage-sliders.component';
+import { CreateSliderComponent } from './create-slider/create-slider.component';
 
 
 @NgModule({
@@ -48,7 +50,9 @@ import { CreateContactComponent } from './create-contact/create-contact.componen
     ManageContactComponent,
     CreateHomeComponent,
     CreateAboutComponent,
-    CreateContactComponent
+    CreateContactComponent,
+    ManageSlidersComponent,
+    CreateSliderComponent
   ],
   imports: [
     CommonModule,

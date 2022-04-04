@@ -16,6 +16,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { TokenInterceptor } from './Interceptor/token.interceptor';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
+import { GooglePayButtonComponent, GooglePayButtonModule } from '@google-pay/button-angular';
 
 @NgModule({
   declarations: [
@@ -35,19 +36,22 @@ import { CartComponent } from './cart/cart.component';
     NgbModule,
     NgxSpinnerModule,
     SharedModule,
+    GooglePayButtonModule,
+
     ToastNoAnimationModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 5000,
       positionClass: 'toast-bottom-center',
-      preventDuplicates: true,}),
-      HttpClientModule
+      preventDuplicates: true,
+    }),
+    HttpClientModule,
   ],
   providers: [
-   { 
-     provide:HTTP_INTERCEPTORS,
-     useClass:TokenInterceptor,
-     multi:true
-  }
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

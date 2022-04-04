@@ -1,20 +1,19 @@
 
 
 <app-header></app-header>
-
-<ngb-carousel >
+<ngb-carousel>
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
-        <img src="../../assets/img/carousel-1.jpg " alt="Random first slide">
+        <img  src="../../assets/images/{{sliderService.data[1].image}}"  width="1500px" alt="Random first slide">
       </div>
       <div class="carousel-caption">
-        <h3>First slide label</h3>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <h1 style="color: goldenrod;">The Best Products</h1>
+        <h2 style="color: black;">Have fun with the most satisfying customer service</h2>
       </div>
     </ng-template>
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
-        <img src="../../assets/img/carousel-2.jpg " alt="Random second slide">
+        <img src="../../assets/images/{{sliderService.data[2].image}}"  width="1500px" height="1200px" alt="Random second slide">
       </div>
       <div class="carousel-caption">
         <h3>Second slide label</h3>
@@ -23,7 +22,7 @@
     </ng-template>
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
-        <img src="../../assets/img/carousel-3.jpg " alt="Random third slide">
+        <img src="../../assets/images/{{sliderService.data[0].image}}"  width="1500px" alt="Random third slide">
       </div>
       <div class="carousel-caption">
         <h3>Third slide label</h3>
@@ -92,34 +91,34 @@
                         <h1 class="display-5 mb-4">Contact Us</h1>
                     </div>
                     <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                    <form>
+                    <form [formGroup]="CreateForm">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <input formControlName="name" type="text" class="form-control" id="name" placeholder="Your Name">
                                     <label for="name">Your Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input formControlName="email" type="email" class="form-control" id="email" placeholder="Your Email">
                                     <label for="email">Your Email</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <input formControlName="subject" type="text" class="form-control" id="subject" placeholder="Subject">
                                     <label for="subject">Subject</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                    <textarea formControlName="message" class="form-control" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
                                     <label for="message">Message</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                <button (click)="save()" class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
                             </div>
                         </div>
                     </form>
