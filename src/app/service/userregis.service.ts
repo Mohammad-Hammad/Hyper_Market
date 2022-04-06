@@ -15,7 +15,9 @@ export class UserregisService {
   arr:any=[]
   arrr:any=[]
   arrrr:any=[]
+  Number:number | undefined
   display_Image:any;
+  
   constructor(private spinner:NgxSpinnerService,private http:HttpClient,private toastr:ToastrService) { }
 
   getUserRegis(){
@@ -26,6 +28,8 @@ export class UserregisService {
       this.data=res;
       this.spinner.hide();  
       this.toastr.success('Retrived');
+      this.Number = this.data[0].numOfCus;
+      
     }, err=>{
       this.spinner.hide()
       this.toastr.error("Something went wrong")
@@ -98,4 +102,9 @@ export class UserregisService {
     })
   }
 
+  getNumber()
+  {
+    
+    return this.data[0].numOfCus;
+  }
 }

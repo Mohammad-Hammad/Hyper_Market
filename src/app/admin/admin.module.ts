@@ -26,8 +26,12 @@ import { CreateAboutComponent } from './create-about/create-about.component';
 import { CreateContactComponent } from './create-contact/create-contact.component';
 import { ManageSlidersComponent } from './manage-sliders/manage-sliders.component';
 import { CreateSliderComponent } from './create-slider/create-slider.component';
-
-
+import { NgChartsModule } from 'ng2-charts';
+import { ManageTestimonialsComponent } from './manage-testimonials/manage-testimonials.component';
+import { CreateTestimonialComponent } from './create-testimonial/create-testimonial.component';
+import { ViewReportsComponent } from './view-reports/view-reports.component';
+import {MatTreeModule} from '@angular/material/tree';
+import { TestingComponent } from './testing/testing.component'; 
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -52,12 +56,18 @@ import { CreateSliderComponent } from './create-slider/create-slider.component';
     CreateAboutComponent,
     CreateContactComponent,
     ManageSlidersComponent,
-    CreateSliderComponent
+    CreateSliderComponent,
+    ManageTestimonialsComponent,
+    CreateTestimonialComponent,
+    ViewReportsComponent,
+    TestingComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
+    NgChartsModule,
+    MatTreeModule
   ]
 })
 export class AdminModule { }

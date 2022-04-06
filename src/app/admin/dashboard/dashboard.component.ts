@@ -11,6 +11,7 @@ export class DashboardComponent implements OnInit {
   constructor(private route:Router) { }
 
   ngOnInit(): void {
+   
   }
   goTocategory(){
 this.route.navigate(['admin/manage']);
@@ -42,6 +43,12 @@ this.route.navigate(['admin/manage']);
   }
   goTosearch(){
     this.route.navigate(['admin/search'])
+  }
+  goToViewReports(){
+    this.route.navigate(['admin/ViewReports'])
+  }
+  goToPages(){
+    this.route.navigate(['admin/managePages'])
   }
 }
 //

@@ -17,6 +17,7 @@ import { TokenInterceptor } from './Interceptor/token.interceptor';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { GooglePayButtonComponent, GooglePayButtonModule } from '@google-pay/button-angular';
+import { CreateTestimonialUserComponent } from './create-testimonial-user/create-testimonial-user.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { GooglePayButtonComponent, GooglePayButtonModule } from '@google-pay/but
     TestimonialComponent,
     ProductComponent,
     CartComponent,
+    CreateTestimonialUserComponent,
     
   ],
   imports: [

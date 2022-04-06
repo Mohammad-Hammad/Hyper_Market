@@ -12,6 +12,7 @@ export class ProfileComponent implements OnInit {
 
   adminObj=JSON.parse(localStorage.getItem('user')||'');
   primar=parseInt(this.adminObj.primarysid);
+  primarr=parseInt(this.adminObj.firstName);
 
 
   unique_name=this.adminObj.unique_name;
@@ -28,6 +29,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.primar);
+    console.log(this.primarr);
     this.admin.getAdminById(this.primar)
   }
 

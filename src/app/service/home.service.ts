@@ -247,6 +247,16 @@ this.toastr.success('Data Retrieved !!')
     });
     
     }
+    searchComment(comment:any){
+      this.http.post('https://localhost:44338/api/Admin/searchOfComment',comment).subscribe((res=>{
+      comment=res;
+      this.toastr.success(' searchComment Successfuly !!')
+      }),err=>{
+        this.toastr.error("Something want worning !!");
+      
+      });
+      
+      }
 
     getAllProduct()
     {

@@ -8,13 +8,17 @@ import { ManageAdminsComponent } from './manage-admins/manage-admins.component';
 import { ManageCategoriesComponent } from './manage-categories/manage-categories.component';
 import { ManageContactComponent } from './manage-contact/manage-contact.component';
 import { ManageHomeComponent } from './manage-home/manage-home.component';
+import { ManagePagesComponent } from './manage-pages/manage-pages.component';
 import { ManageProductsComponent } from './manage-products/manage-products.component';
 import { ManageSlidersComponent } from './manage-sliders/manage-sliders.component';
+import { ManageTestimonialsComponent } from './manage-testimonials/manage-testimonials.component';
 import { MonthlyReportComponent } from './monthly-report/monthly-report.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisteredDetailsComponent } from './registered-details/registered-details.component';
 import { SearchComponent } from './search/search.component';
+import { TestingComponent } from './testing/testing.component';
 import { UserRegisComponent } from './user-regis/user-regis.component';
+import { ViewReportsComponent } from './view-reports/view-reports.component';
 
 const routes: Routes = [
   {
@@ -75,6 +79,18 @@ const routes: Routes = [
   },{
     path:'manageSlider',
     component:ManageSlidersComponent
+  },{
+    path:'manageTestimonial',
+    component:ManageTestimonialsComponent
+  },{
+    path:'managePages',
+    component:ManagePagesComponent
+  },{
+    path:'ViewReports',
+    component:ViewReportsComponent
+  },{
+    path:'testing',
+    component:TestingComponent
   }
 ];
 
