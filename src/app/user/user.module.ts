@@ -7,6 +7,7 @@ import { SearchBarCodeComponent } from './search-bar-code/search-bar-code.compon
 import { ViewUpdateProfileComponent } from './view-update-profile/view-update-profile.component';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DisplayInvoiceComponent } from './display-invoice/display-invoice.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ContentComponent,
     SearchBarCodeComponent,
     ViewUpdateProfileComponent,
-    DashboardComponent
+    DashboardComponent,
+    DisplayInvoiceComponent
   ],
   imports: [
     CommonModule,

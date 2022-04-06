@@ -1,0 +1,9 @@
+thead, tbody, tfoot, tr, td, th {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    padding-right: 69px;
+    padding-left: 62px;
+    padding: 0 auto;
+}
+

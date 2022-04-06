@@ -1,0 +1,18 @@
+<app-dashboard></app-dashboard>
+
+    <h2 mat-dialog-title>Display invoice</h2>
+      <table style="margin:0 auto; margin-top: 115px; " mat-table class="mat-elevation-z8">
+        <tr >
+            <th>Order At</th>
+            <th>Total Price</th>
+        </tr>
+      <tr  *ngFor="let obj of home.invoice">
+        <td>{{obj.orderAt}}</td>
+        <td>{{obj.totalPrice}}</td>
+      
+      </tr>
+      </table> 
+      
+      
+        
+    

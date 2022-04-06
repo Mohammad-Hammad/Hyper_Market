@@ -25,6 +25,11 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['user/viewToUpdate'])
   }
 
+  goToInvoice()
+  {
+    this.router.navigate(['user/invoice'])
+  }
+
   clear()
   {
     localStorage.clear();

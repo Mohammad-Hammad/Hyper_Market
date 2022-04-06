@@ -50,3 +50,9 @@ body{margin-top:20px;}
     padding-top: 0.5rem !important;
     padding-left: 3rem !important;
 }
+
+.btn.btn-primary, .btn.btn-secondary {
+    color: #FFFFFF;
+    /* padding-top: 5px; */
+    margin-top: 13px !important;
+}

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContentComponent } from './content/content.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DisplayInvoiceComponent } from './display-invoice/display-invoice.component';
 import { SearchBarCodeComponent } from './search-bar-code/search-bar-code.component';
 import { ViewUpdateProfileComponent } from './view-update-profile/view-update-profile.component';
 
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path:'viewToUpdate',
     component:ViewUpdateProfileComponent
+
+  },
+  {
+    path:'invoice',
+    component:DisplayInvoiceComponent
 
   }
 ];

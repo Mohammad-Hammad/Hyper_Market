@@ -7,19 +7,123 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class HomeService {
+  customerObj=JSON.parse(localStorage.getItem('user')||'');
+  customer_Id=parseInt(this.customerObj.nameid);
   selectedProduct:any={};
   data:any=[]
   display_Image:any;
   amount:any=[];
+  invoice:any=[{}];
+  order:any=[{}];
+  order2:any=[{}];
+  ordids:any;
+  ordid:any;
   createCredit:any=[]
   constructor(private spinner:NgxSpinnerService,private http:HttpClient,private toastr:ToastrService) { }
+
+  deleteCusCart(id:number){
+    this.http.delete('https://localhost:44338/api/user/deletecustomercarts/'+id).subscribe((res)=>
+    {
+      this.product=[]
+      this.total=[];
+      this.toastr.success('Thank You')
+    },err=>{
+      this.toastr.error('can not delete')
+    })
+    window.location.reload();
+  }
+
+
+  getOrderId(id:any)
+  {
+   
+//show spinner
+this.spinner.show();
+//hits api
+this.http.get('https://localhost:44338/api/User/getOrderId/'+id).subscribe((res)=>{
+this.order2=res;
+this.ordids=this.order2.length-1
+console.log("ordersss///// "+JSON.stringify(res));
+
+console.log("////order2id//////"+this.ordids);
+console.log("////order2//////"+JSON.stringify(this.order2.length-1));
+console.log("//////////"+JSON.stringify(res).indexOf("orD_ID",-1));
+for (let index = 0; index < this.product.length; index++)
+{
+ const orderPro={
+   orderID:this.order2[this.order2.length-1].orD_ID  ,
+   productID:this.product[index].proId
+
+}
+this.addOrderProducts(orderPro);
+this.deleteCusCart(this.customer_Id)
+//hide spinner
+this.spinner.hide();
+//toaster
+// this.toastr.success('Data Retrieved from ord id !!')
+}}, err=>{ // في حال كان في error
+  this.spinner.hide();
+  this.toastr.error('Error in getorderId');
+})
+
+  }
+  addOrderProducts(order:any){
+    this.spinner.show();
+    
+    this.http.post('https://localhost:44338/api/user/orderProduct',order).subscribe((res:any)=>{
+      console.log(res);
+      this.spinner.hide();
+      // this.toastr.success('data Retrived from add order fun');
+    }, err=>{
+      this.spinner.hide()
+      this.toastr.error("Error in addOrderProducts fun")
+    })
+  }
+
+  DisplayInvoice(id:number){
+    //show spinner
+    this.spinner.show();
+    //hit api
+    
+    this.http.get('https://localhost:44338/api/user/invoice/'+id).subscribe((res)=>{
+    this.invoice=res ;
+      console.log("invoice : "+this.invoice);
+      
+      this.spinner.hide();  
+      this.toastr.success('invoice retrived');
+    }, err=>{
+      this.spinner.hide()
+      this.toastr.error("Something  wrong")
+    })
+  }
+
+  addOrders(order:any){
+    this.spinner.show();
+    console.log("id"+JSON.stringify(order));
+    
+    console.log("orde///: "+JSON.stringify(order));
+    this.http.post('https://localhost:44338/api/user/addOrder',order).subscribe((res:any)=>{
+      console.log(res);
+      // this.order=res;
+      
+    this.getOrderId(this.customer_Id)
+      console.log("order " +JSON.stringify(order) );
+      console.log("products " +JSON.stringify(this.product) );
+      
+      this.spinner.hide();
+      this.toastr.success('Order Done');
+    }, err=>{
+      this.spinner.hide()
+      this.toastr.error("Something went wrong in add order fun")
+    })
+  }
 
   updateAmount(body:any)
   {
     this.http.put('https://localhost:44338/api/user/UpdateAmount',body).subscribe((res:any)=>{
-      this.toastr.success('Updated');
+      // this.toastr.success('Updated');
     }, err=>{
-      this.toastr.error("Something went wrong")
+      this.toastr.error("Something went wrong in update amount")
     })
   }
   createCredits(data:any){
@@ -30,10 +134,10 @@ export class HomeService {
       console.log(res);
       
       this.spinner.hide();
-      this.toastr.success('Retrived');
+      this.toastr.success('Credit Created');
     }, err=>{
       this.spinner.hide()
-      this.toastr.error("Something went wrong")
+      this.toastr.error("Something went wrong in create creadits")
       this.toastr.error(err.message , err.status)
     })
     window.location.reload();
@@ -49,11 +153,11 @@ export class HomeService {
     this.amount=[res] ;
       console.log(this.amount);
       
-      this.spinner.hide();  
-      this.toastr.success('Amount retrived');
+      // this.spinner.hide();  
+      // this.toastr.success('Amount retrived');
     }, err=>{
       this.spinner.hide()
-      this.toastr.error("Something  wrong")
+      this.toastr.error("Something  wrong in get amount")
     })
   }
 

@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { HomeService } from '../service/home.service';
 import {render} from 'creditcardpayments/creditCardPayments'
 import { MatDialog } from '@angular/material/dialog';
+import { JsonpClientBackend } from '@angular/common/http';
 
 @Component({
   selector: 'app-cart',
@@ -60,13 +61,16 @@ onErorr = (event:ErrorEvent):void => {
 }
   quantity = new FormControl(); 
   @ViewChild('Create') Create! :TemplateRef<any>
-  constructor(private toaster:ToastrService , private spinner:NgxSpinnerService, 
+  @ViewChild('Invoice') Invoice! :TemplateRef<any>
+
+    constructor(private toaster:ToastrService , private spinner:NgxSpinnerService, 
     private dialog:MatDialog,public home:HomeService) {
    
    }
   customerObj=JSON.parse(localStorage.getItem('user')||'');
   customer_Id=parseInt(this.customerObj.nameid);
   result:any=[];
+   element:any;
 
   CreateForm:FormGroup= new FormGroup({
     cardName :new FormControl('',Validators.required),
@@ -124,7 +128,41 @@ location.reload
   
     }
     this.home.updateAmount(updateObj);
-    (this.home.total[0].totalPrice)=0
+    this.addOrder();
+   
+    // (this.home.total[0].totalPrice)=0;
+   
+  }
+  
+  addOrder()
+  {
+   
+      const order={
+        totalPrice:this.home.total[0].totalPrice,
+        CustomerID:this.customer_Id
+  
+    }
+
+   
+    this.home.addOrders(order);
+    console.log('data: '+this.home.ordids );
+    
+    
+    // for (let index = 0; index < this.home.product.length; index++)
+    //  {
+    //   const orderPro={
+    //     orderID:JSON.stringify(this.home.order2.length-1) ,
+    //     productID:this.home.product[index].proId
+  
+    // }
+    // console.log("ord obj"+orderPro.orderID);
+    // console.log("ord id ////: ///"+this.home.ordids);
+    
+   
+     
+      
+    
+
   }
 
 
@@ -143,20 +181,33 @@ location.reload
       if(this.home.amount[0].amount>(this.home.total[0].totalPrice))
       {
       this.result=this.home.amount[0].amount - (this.home.total[0].totalPrice);   
-      this.toaster.success('operation compleate and your balance is: '+this.result);
+      this.toaster.success('Your Payment Done');
       const updateObj={
         Amount:this.result,
         CustomerID:this.customer_Id
     
       }
       this.home.updateAmount(updateObj);
-      (this.home.total[0].totalPrice)=0;
+      this.addOrder();
+      // (this.home.total[0].totalPrice)=0;
     
     }  
     else
     this.toaster.warning('Your Card Balance Not Engouh')
 
-}
+  }
+
 
   }
+
+  Display()
+  {
+    this.home.DisplayInvoice(this.customer_Id);
+    this.dialog.open(this.Invoice)
+
+
+  }
+ 
+
+  
 }
