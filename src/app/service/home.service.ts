@@ -19,6 +19,7 @@ export class HomeService {
   ordids:any;
   ordid:any;
   createCredit:any=[]
+  creditid:any;
   constructor(private spinner:NgxSpinnerService,private http:HttpClient,private toastr:ToastrService) { }
 
   deleteCusCart(id:number){
@@ -57,6 +58,7 @@ for (let index = 0; index < this.product.length; index++)
 }
 this.addOrderProducts(orderPro);
 this.deleteCusCart(this.customer_Id)
+this.deleteCusCart(this.customer_Id)
 //hide spinner
 this.spinner.hide();
 //toaster
@@ -73,7 +75,7 @@ this.spinner.hide();
     this.http.post('https://localhost:44338/api/user/orderProduct',order).subscribe((res:any)=>{
       console.log(res);
       this.spinner.hide();
-      // this.toastr.success('data Retrived from add order fun');
+      this.toastr.success('data Retrived from add order fun');
     }, err=>{
       this.spinner.hide()
       this.toastr.error("Error in addOrderProducts fun")
@@ -121,17 +123,19 @@ this.spinner.hide();
   updateAmount(body:any)
   {
     this.http.put('https://localhost:44338/api/user/UpdateAmount',body).subscribe((res:any)=>{
-      // this.toastr.success('Updated');
+      this.toastr.success('Updated');
     }, err=>{
       this.toastr.error("Something went wrong in update amount")
     })
   }
   createCredits(data:any){
     this.spinner.show();
+    console.log("credit "+JSON.stringify(data) );
     //hit api
     this.http.post('https://localhost:44338/api/user/newCredite',data).subscribe((res:any)=>{
       this.createCredit=res;
-      console.log(res);
+      // this.creditid=res
+      console.log("credit "+JSON.stringify(res) );
       
       this.spinner.hide();
       this.toastr.success('Credit Created');
@@ -148,17 +152,19 @@ this.spinner.hide();
     this.spinner.show();
     //hit api
     this.http.get('https://localhost:44338/api/user/CreditAmount/'+id).subscribe((res)=>{
-      console.log('inside servise '+[res]);
+      console.log('inside get amount '+JSON.stringify(res));
       
-    this.amount=[res] ;
-      console.log(this.amount);
+    this.amount=res ;
+    // console.log( "amount len inside get "+JSON.stringify(this.amount[this.amount.length-1].cardID));      
       
       // this.spinner.hide();  
-      // this.toastr.success('Amount retrived');
+      this.toastr.success('Amount retrived');
     }, err=>{
       this.spinner.hide()
       this.toastr.error("Something  wrong in get amount")
     })
+    // window.location.reload()
+
   }
 
   getAll(){
