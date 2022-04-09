@@ -6,6 +6,7 @@ import { ContactService } from '../service/contact.service';
 import { HomeService } from '../service/home.service';
 import { HomepageService } from '../service/homepage.service';
 import { SliderService } from '../service/slider.service';
+import { TestimonialService } from '../service/testimonial.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ import { SliderService } from '../service/slider.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public homepageService:HomepageService,public sliderService:SliderService,private contactService:ContactService,private toaster:ToastrService , private spinner:NgxSpinnerService, public home:HomeService) { }
+  constructor(public homepageService:HomepageService,public sliderService:SliderService,private contactService:ContactService,private toaster:ToastrService , private spinner:NgxSpinnerService, public home:HomeService,public testimonial: TestimonialService) { }
   CreateForm:FormGroup= new FormGroup({
     name :new FormControl(),
     email :new FormControl(),

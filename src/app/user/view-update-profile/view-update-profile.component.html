@@ -1,6 +1,7 @@
-<app-dashboard></app-dashboard>
-
-
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+    <app-dashboard></app-dashboard>
+   <div class="content-wrapper"> <!--204-->
+     <div class="container-fluid">
 <div class="container-xl px-4 mt-4" [formGroup]="updateForm">
     <div class="row">
         <div class="col-xl-4">
@@ -11,7 +12,7 @@
                     <!-- Profile picture image-->
                     <img class="img-account-profile rounded-circle mb-2" 
                     src="../../../assets/images/{{user.selectedCustomer.imageName}}"
-                    alt="">
+                    width="200" height="200" alt="">
                     <input type="file" #file placeholder="Choose Image"
                                         formControlName="imageName"
                                         [(ngModel)]="user.selectedCustomer.imageName" 
@@ -52,23 +53,7 @@
                             </div>
                         </div>
                         <!-- Form Row        -->
-                        <div class="row gx-3 mb-3">
-                            <!-- Form Group (organization name)-->
-                            <div class="col-md-6">
-                                <label  class="small mb-1" for="inputOrgName">Organization name</label>
-                                <input  class="form-control" id="inputOrgName" 
-                                matInput formControlName="Organization"
-                                type="text"
-                                >
-                            </div>
-                            <!-- Form Group (location)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputLocation">Location</label>
-                                <input  class="form-control" id="inputLocation" type="text"
-                                matInput formControlName="Location"
-                                  value="United Arab Emirates, Abu Dhabi">
-                            </div>
-                        </div>
+                      
                         <!-- Form Group (email address)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputEmailAddress">Email address</label>
@@ -85,3 +70,15 @@
         </div>
     </div>
 </div>
+</div>
+<footer class="sticky-footer">
+  <div class="container">
+    <div class="text-center">
+      <small>Copyright © HyperMarket 2022</small>
+    </div>
+  </div>
+</footer>
+</div>
+
+</body>
+  
