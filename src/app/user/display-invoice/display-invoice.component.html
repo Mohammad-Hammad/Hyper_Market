@@ -2,7 +2,7 @@
   <app-dashboard></app-dashboard>
  <div class="content-wrapper"> <!--204-->
    <div class="container-fluid">
-    <h2 mat-dialog-title>Display invoice</h2>
+    <!-- <h2 mat-dialog-title>Display invoice</h2> -->
       <!-- <table style="margin:0 auto; margin-top: 115px; " mat-table class="mat-elevation-z8">
         <tr >
             <th>Order At</th>
@@ -22,7 +22,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let obj of home.invoice">
+        <tr *ngFor="let obj of this.home.invoice">
           <td>
                 {{obj.orderID}}
             </td>

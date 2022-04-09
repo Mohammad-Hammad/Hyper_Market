@@ -9,7 +9,7 @@ import { ViewUpdateProfileComponent } from './view-update-profile/view-update-pr
 const routes: Routes = [
   {
     path:'',
-    component:ContentComponent
+    component:ViewUpdateProfileComponent
   }, 
   {
     path:'content',

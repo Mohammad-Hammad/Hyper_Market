@@ -75,7 +75,7 @@ this.spinner.hide();
     this.http.post('https://localhost:44338/api/user/orderProduct',order).subscribe((res:any)=>{
       console.log(res);
       this.spinner.hide();
-      this.toastr.success('data Retrived from add order fun');
+      // this.toastr.success('data Retrived from add order fun');
     }, err=>{
       this.spinner.hide()
       this.toastr.error("Error in addOrderProducts fun")
@@ -92,7 +92,7 @@ this.spinner.hide();
       console.log("invoice : "+this.invoice);
       
       this.spinner.hide();  
-      this.toastr.success('invoice retrived');
+      // this.toastr.success('invoice retrived');
     }, err=>{
       this.spinner.hide()
       this.toastr.error("Something  wrong")
@@ -123,7 +123,7 @@ this.spinner.hide();
   updateAmount(body:any)
   {
     this.http.put('https://localhost:44338/api/user/UpdateAmount',body).subscribe((res:any)=>{
-      this.toastr.success('Updated');
+      // this.toastr.success('Updated');
     }, err=>{
       this.toastr.error("Something went wrong in update amount")
     })
@@ -138,7 +138,7 @@ this.spinner.hide();
       console.log("credit "+JSON.stringify(res) );
       
       this.spinner.hide();
-      this.toastr.success('Credit Created');
+      // this.toastr.success('Credit Created');
     }, err=>{
       this.spinner.hide()
       this.toastr.error("Something went wrong in create creadits")
@@ -158,7 +158,7 @@ this.spinner.hide();
     // console.log( "amount len inside get "+JSON.stringify(this.amount[this.amount.length-1].cardID));      
       
       // this.spinner.hide();  
-      this.toastr.success('Amount retrived');
+      // this.toastr.success('Amount retrived');
     }, err=>{
       this.spinner.hide()
       this.toastr.error("Something  wrong in get amount")
