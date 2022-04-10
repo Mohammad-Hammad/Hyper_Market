@@ -9,9 +9,10 @@
           <i class="fa fa-table"></i> Monthly Report </div>
         <div class="card-body">
           <div class="table-responsive">
-            <button class="button1" (click)="exportexcel()">Export to Excel</button>
-
-            <table class="table table-bordered"  id="excel-table" width="100%" cellspacing="0">
+            <button class="button1 btn btn-success btn-block fa fa-file-excel-o " (click)="exportexcel()">Export to Excel</button>
+            <button class="button2 btn btn-success btn-block fa fa-file-pdf-o fa fa-file-pdf-o"  (click)="openPDF()">Download PDF</button>
+            <div id="htmlData">
+            <table class="table table-bordered" id="excel-table" width="100%" cellspacing="0">
         <thead>
         <tr>
             <th>Order ID</th>
@@ -54,6 +55,7 @@
 
     </tbody>
     </table>
+  </div>
   </div>
 
 
