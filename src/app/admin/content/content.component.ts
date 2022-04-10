@@ -8,7 +8,7 @@ import { UserregisService } from 'src/app/service/userregis.service';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-    
+    Num:number=0;
   constructor(public userRegisService:UserregisService,) { 
     
   }

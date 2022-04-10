@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { CreateTestimonialUserComponent } from '../create-testimonial-user/create-testimonial-user.component';
 import { ContactService } from '../service/contact.service';
 import { HomeService } from '../service/home.service';
 import { HomepageService } from '../service/homepage.service';
@@ -14,8 +17,31 @@ import { TestimonialService } from '../service/testimonial.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(public homepageService:HomepageService,public sliderService:SliderService,private contactService:ContactService,private toaster:ToastrService , private spinner:NgxSpinnerService, public home:HomeService,public testimonial: TestimonialService) { }
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: false,
+    navSpeed: 700,
+    navText: ['<i class="fa fa-arrow-left" aria-hidden="true"></i>', '<i class="fa fa-arrow-right" aria-hidden="true"></i>'],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+    },
+    nav: true
+  }
+  constructor(private dialog: MatDialog,public homepageService:HomepageService,public sliderService:SliderService,private contactService:ContactService,private toaster:ToastrService , private spinner:NgxSpinnerService, public home:HomeService,public testimonial: TestimonialService) { }
   CreateForm:FormGroup= new FormGroup({
     name :new FormControl(),
     email :new FormControl(),
@@ -26,6 +52,7 @@ export class HomeComponent implements OnInit {
   customer_Id=parseInt(this.customerObj.nameid);
 
   ngOnInit(): void {
+    this.testimonial.getAll();
      this.home.getCategoryAndProduct();
      setTimeout(() => {
       /** spinner ends after 5 seconds */
@@ -33,6 +60,9 @@ export class HomeComponent implements OnInit {
     }, 5000);
     this.sliderService.getAll();
     this.homepageService.getAll();
+  }
+  openDialog() {
+    this.dialog.open(CreateTestimonialUserComponent)
   }
   AddProduct(Id:number){
     const body={
