@@ -5,11 +5,11 @@ import { HomepageService } from 'src/app/service/homepage.service';
 import { CreateHomeComponent } from '../create-home/create-home.component';
 
 @Component({
-  selector: 'app-manage-home',
-  templateUrl: './manage-home.component.html',
-  styleUrls: ['./manage-home.component.css']
+  selector: 'app-manage-texts',
+  templateUrl: './manage-texts.component.html',
+  styleUrls: ['./manage-texts.component.css']
 })
-export class ManageHomeComponent implements OnInit {
+export class ManageTextsComponent implements OnInit {
   @ViewChild('callUpdateDialog') callUpdateDialog! : TemplateRef<any>
   @ViewChild('callDeleteDialog') callDeleteDialog! : TemplateRef<any>
   constructor(private dialog: MatDialog,public homepageService:HomepageService) { }

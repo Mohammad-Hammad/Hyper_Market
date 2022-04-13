@@ -22,6 +22,19 @@ data:any=[]
       this.toastr.error("Something went wrong")
     })
   }
+  getAllUser() {
+    //show spinner
+    this.spinner.show();
+    //hit api
+    this.http.get('https://localhost:44338/api/User/GetAllTestimonial').subscribe((res) => {
+      this.data = res;
+      this.spinner.hide();
+      this.toastr.success('Retrived');
+    }, err => {
+      this.spinner.hide()
+      this.toastr.error("Something went wrong")
+    })
+  }
   createTestimonial(data: any) {
     this.spinner.show();
     //hit api      

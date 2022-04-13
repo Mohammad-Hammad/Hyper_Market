@@ -29,6 +29,7 @@ export class CreateAboutComponent implements OnInit {
            console.log(this.about.data.ftext)
            console.log(this.about.data.stext)
             this.about.createAbout(this.CreateForm.value);
+            window.location.reload();
 
    }
   uploadFile(file:any){

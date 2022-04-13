@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class HomeService {
-  customerObj=JSON.parse(localStorage.getItem('user')||'');
+  customerObj=JSON.parse(localStorage.getItem('user')||'[]');
   customer_Id=parseInt(this.customerObj.nameid);
   selectedProduct:any={};
   data:any=[]

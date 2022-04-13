@@ -40,6 +40,7 @@ export class ManageAdminsComponent implements OnInit {
         this.adminservice.delete(adminId);
         else if(res=='no')
         console.log("Thank you");
+        window.location.reload();
       }
     })
   }

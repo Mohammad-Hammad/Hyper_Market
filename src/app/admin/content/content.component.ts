@@ -8,6 +8,7 @@ import { UserregisService } from 'src/app/service/userregis.service';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
+    
     Num:number=0;
   constructor(public userRegisService:UserregisService,) { 
     
@@ -45,6 +46,31 @@ export class ContentComponent implements OnInit {
           }
       }
   });
+  const myChart2 = new Chart("myChart2", {
+    type: 'pie',
+    data: {
+        labels: ['Approximate sales of this month','Approximate sales of this year','Expected sales next month','Expected sales next month year'],
+        datasets: [{
+            label: 'Sales Chart',
+            data: [30000,40000,45000,185000],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(150, 114, 65, 0.5)'
+            ],
+            
+        }]
+    }, 
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+   
   this.userRegisService.getUserRegis();
   this.userRegisService.getAnuualCount();
   this.userRegisService.getAnuualSum();

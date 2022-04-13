@@ -34,9 +34,11 @@ export class ManageSlidersComponent implements OnInit {
     this.updateForm.controls['sliderId'].setValue(slidid);
     this.updateForm.controls['image'].setValue(img);
     this.dialog.open(this.callUpdateDialog)
+    
   }
   updateCategory(){
     this.sliderService.updateSlider(this.updateForm.value);
+    window.location.reload();
   }
 
 
@@ -50,6 +52,7 @@ export class ManageSlidersComponent implements OnInit {
         this.sliderService.delete(sliderId);
         else if(res=='no')
         console.log("Thank you");
+        window.location.reload();
       }
     })
   }

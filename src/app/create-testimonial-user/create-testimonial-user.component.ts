@@ -13,7 +13,7 @@ export class CreateTestimonialUserComponent implements OnInit {
   constructor(private testimonial: TestimonialService) { }
   CreateForm: FormGroup = new FormGroup({
     Comment: new FormControl(),
-    CustomerID: new FormControl( this.customerid)
+    CustomerID: new FormControl( this.customerid),
   })
   ngOnInit(): void {
   }

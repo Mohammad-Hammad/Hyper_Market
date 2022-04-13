@@ -40,15 +40,21 @@ export class TestimonialComponent implements OnInit {
   constructor(private dialog: MatDialog, public testimonial: TestimonialService, public home: HomeService) { }
   comment: string = "";
   ngOnInit(): void {
-    this.testimonial.getAll();
+    this.testimonial.getAllUser();
   }
   InputValue(event: any) {
     console.log(event.target.value);
     this.comment = event.target.value;
   }
-
+  customerObj=JSON.parse(localStorage.getItem('user')||'[]');
+  customer_role=parseInt(this.customerObj.role);
   openDialog() {
+    if(this.customer_role == 2){
     this.dialog.open(CreateTestimonialUserComponent)
+    }
+    else {
+      alert(" Please login ");
+    }
   }
   search() {
     const objCourse = {

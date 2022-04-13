@@ -21,6 +21,7 @@ export class CreateAdminsComponent implements OnInit {
   save(){
 
     this.adminservice.createAdmin(this.CreateForm.value);
+    window.location.reload();
   }
   uploadFile(file:any){
     if(file.length==0){

@@ -48,11 +48,11 @@ export class HomeComponent implements OnInit {
     subject :new FormControl(),
     message :new FormControl(),
   })
-  customerObj=JSON.parse(localStorage.getItem('user')||'');
+  customerObj=JSON.parse(localStorage.getItem('user')||'[]');
   customer_Id=parseInt(this.customerObj.nameid);
-
+  customer_role=parseInt(this.customerObj.role);
   ngOnInit(): void {
-    this.testimonial.getAll();
+    this.testimonial.getAllUser();
      this.home.getCategoryAndProduct();
      setTimeout(() => {
       /** spinner ends after 5 seconds */
@@ -65,13 +65,19 @@ export class HomeComponent implements OnInit {
     this.dialog.open(CreateTestimonialUserComponent)
   }
   AddProduct(Id:number){
-    const body={
+    if(this.customer_role == 2){
+     
+          const body={
       customerId:this.customer_Id,
       ProId:Id
     }
    this.home.AddProductCart(body);
    location.reload();
+  }else{
+    alert(" Please login ");
   }
+  }
+
   save(){
     this.contactService.createContact(this.CreateForm.value);
   }

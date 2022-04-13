@@ -15,15 +15,13 @@ export class CreateHomeComponent implements OnInit {
 
   constructor(private homepageService:HomepageService,public user:UserService) { }
   CreateForm:FormGroup= new FormGroup({
-    FirstText :new FormControl(this.primar),
-    SecondText :new FormControl(),
-    CatName :new FormControl(),
-    ProdName :new FormControl(),
+    FirstText :new FormControl()
   })
   ngOnInit(): void {
   }
   save(){
     this.homepageService.createHome(this.CreateForm.value);
+    window.location.reload();
   }
 
 

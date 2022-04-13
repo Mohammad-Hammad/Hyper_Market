@@ -12,6 +12,7 @@ import { ManagePagesComponent } from './manage-pages/manage-pages.component';
 import { ManageProductsComponent } from './manage-products/manage-products.component';
 import { ManageSlidersComponent } from './manage-sliders/manage-sliders.component';
 import { ManageTestimonialsComponent } from './manage-testimonials/manage-testimonials.component';
+import { ManageTextsComponent } from './manage-texts/manage-texts.component';
 import { MonthlyReportComponent } from './monthly-report/monthly-report.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisteredDetailsComponent } from './registered-details/registered-details.component';
@@ -91,6 +92,9 @@ const routes: Routes = [
   },{
     path:'testing',
     component:TestingComponent
+  },{
+    path:'manageTexts',
+    component:ManageTextsComponent
   }
 ];
 

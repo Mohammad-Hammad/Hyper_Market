@@ -27,6 +27,7 @@ export class CreateProductsComponent implements OnInit {
     console.log(this.productService.data.proID)
     console.log(this.productService.data.barCode)
     this.productService.createProduct(this.CreateForm.value);
+    window.location.reload();
   }
   uploadFile(file:any){
     if(file.length==0){

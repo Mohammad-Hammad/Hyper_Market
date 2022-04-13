@@ -69,7 +69,7 @@ quantity = new FormControl();
   private dialog:MatDialog,public home:HomeService) {
  
  }
-customerObj=JSON.parse(localStorage.getItem('user')||'');
+customerObj=JSON.parse(localStorage.getItem('user')||'[]');
 customer_Id=parseInt(this.customerObj.nameid);
 result:any=[];
  element:any;

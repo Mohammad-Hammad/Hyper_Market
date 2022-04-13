@@ -33,10 +33,13 @@ export class ManageCategoriesComponent implements OnInit {
       imageName:imagename
     }
     this.updateForm.controls['categoryID'].setValue(categoryid);
+    this.updateForm.controls['catName'].setValue(categoryname);
+    this.updateForm.controls['imageName'].setValue(imagename);
     this.dialog.open(this.callUpdateDialog)
   }
   updateCategory(){
     this.homeService.updateCategory(this.updateForm.value);
+    window.location.reload();
   }
 
   uploadFile(file:any){
@@ -57,6 +60,7 @@ export class ManageCategoriesComponent implements OnInit {
         this.homeService.delete(categoryid);
         else if(res=='no')
         console.log("Thank you");
+        window.location.reload();
       }
     })
   }

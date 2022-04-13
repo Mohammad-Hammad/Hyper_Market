@@ -4,6 +4,7 @@ import { SearchService } from 'src/app/service/search.service';
 import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -12,7 +13,7 @@ import html2canvas from 'html2canvas';
 export class SearchComponent implements OnInit {
   title = 'angular-app';
   fileName= 'ExcelSheet.xlsx';
-  constructor(public searchService:SearchService) { }
+  constructor(public searchService:SearchService) {}
   @ViewChild('htmlData') htmlData!: ElementRef;
   SearchForm:FormGroup= new FormGroup({
     dateFrom :new FormControl(),

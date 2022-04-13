@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import {MatDatepickerModule} from '@angular/material/datepicker'; 
 import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ContentComponent } from './content/content.component';
@@ -31,7 +31,8 @@ import { ManageTestimonialsComponent } from './manage-testimonials/manage-testim
 import { CreateTestimonialComponent } from './create-testimonial/create-testimonial.component';
 import { ViewReportsComponent } from './view-reports/view-reports.component';
 import {MatTreeModule} from '@angular/material/tree';
-import { TestingComponent } from './testing/testing.component'; 
+import { TestingComponent } from './testing/testing.component';
+import { ManageTextsComponent } from './manage-texts/manage-texts.component';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -60,14 +61,16 @@ import { TestingComponent } from './testing/testing.component';
     ManageTestimonialsComponent,
     CreateTestimonialComponent,
     ViewReportsComponent,
-    TestingComponent
+    TestingComponent,
+    ManageTextsComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     SharedModule,
     NgChartsModule,
-    MatTreeModule
+    MatTreeModule,
+    MatDatepickerModule
   ]
 })
 export class AdminModule { }

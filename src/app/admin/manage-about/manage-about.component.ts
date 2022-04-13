@@ -46,6 +46,7 @@ export class ManageAboutComponent implements OnInit {
   }
   updateAbout(){
     this.about.updateAbout(this.updateForm.value);
+    window.location.reload();
   }
 
   uploadFile(file:any){
@@ -69,6 +70,7 @@ export class ManageAboutComponent implements OnInit {
         this.about.delete(categoryid);
         else if(res=='no')
         console.log("Thank you");
+        window.location.reload();
       }
     })
   }

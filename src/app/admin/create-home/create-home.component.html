@@ -1,54 +1,14 @@
-<h2 mat-dialog-title>Add Contact</h2>
+<h2 mat-dialog-title>Add HomePage Texts</h2>
 <mat-dialog-content class="mat-typography">
-    <!-- <form [formGroup]="CreateForm" class="example-form">
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Enter Your Full Name</mat-label>
-          <input type="text" matInput formControlName="FirstText" placeholder="enter">
-         
-         
-        </mat-form-field>
-      </form> -->
+ 
       <form [formGroup]="CreateForm" class="example-form">
         <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Enter Your Email</mat-label>
-          <input type="text" matInput formControlName="SecondText" placeholder="enter">
+          <mat-label>Text</mat-label>
+          <input type="text" matInput formControlName="FirstText" placeholder="Enter A Text">
          
         </mat-form-field>
       </form>
 
-    
-
-      <form [formGroup]="CreateForm" class="example-form">
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Subject</mat-label>
-          <input type="text" matInput formControlName="CatName" placeholder="enter">
-         
-        
-        </mat-form-field>
-      </form>
-
-      <form [formGroup]="CreateForm" class="example-form">
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Enter Message</mat-label>
-          <input type="text" matInput formControlName="ProdName" placeholder="enter">
-         
-         
-        </mat-form-field>
-      </form>
-      
-
-
-      <!-- <form [formGroup]="CreateForm" class="example-form">
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Enter Image Name</mat-label>
-          <input type="text" matInput formControlName="imageName" placeholder="enter">
-         
-          <mat-error *ngIf="CreateForm.controls['imageName'] hasError('required')">
-            image is <strong>required</strong>
-          </mat-error> 
-        </mat-form-field>
-      </form> -->
-   
       
 </mat-dialog-content>
 <mat-dialog-actions align="end">

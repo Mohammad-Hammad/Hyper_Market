@@ -44,12 +44,17 @@ export class ManageProductsComponent implements OnInit {
       imageName:imagename,
     }
     this.updateForm.controls['proID'].setValue(proid);
-    this.updateForm.controls['imageName'].setValue(imagename);
+    this.updateForm.controls['proName'].setValue(proname);
+    this.updateForm.controls['sale'].setValue(Sale);
+    this.updateForm.controls['proPrice'].setValue(proprice);
+    this.updateForm.controls['categoryID'].setValue(categoryid);
     this.updateForm.controls['barCode'].setValue(barcode);
+    this.updateForm.controls['imageName'].setValue(imagename);
     this.dialog.open(this.callUpdateDialog)
   }
   updateCategory(){
     this.productService.updateProduct(this.updateForm.value);
+    window.location.reload();
   }
 
   uploadFile(file:any){
@@ -61,6 +66,7 @@ export class ManageProductsComponent implements OnInit {
     const formData = new FormData
     formData.append('file',fileUpload,fileUpload.name);
     this.productService.uploadAttachment(formData);
+    
   }
 
 
@@ -73,6 +79,7 @@ export class ManageProductsComponent implements OnInit {
         this.productService.delete(categoryid);
         else if(res=='no')
         console.log("Thank you");
+        window.location.reload();
       }
     })
   }

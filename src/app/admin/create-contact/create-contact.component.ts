@@ -20,5 +20,6 @@ export class CreateContactComponent implements OnInit {
   }
   save(){
     this.contactService.createContact(this.CreateForm.value);
+    window.location.reload();
   }
 }

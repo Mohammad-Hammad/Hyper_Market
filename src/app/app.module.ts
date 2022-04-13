@@ -19,6 +19,7 @@ import { CartComponent } from './cart/cart.component';
 import { GooglePayButtonComponent, GooglePayButtonModule } from '@google-pay/button-angular';
 import { CreateTestimonialUserComponent } from './create-testimonial-user/create-testimonial-user.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ErrorComponent } from './error/error.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     ProductComponent,
     CartComponent,
     CreateTestimonialUserComponent,
+    ErrorComponent, 
     
   ],
   imports: [

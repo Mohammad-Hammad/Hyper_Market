@@ -47,6 +47,7 @@ export class ManageContactComponent implements OnInit {
   }
   updateContact(){
     this.contactService.updateContact(this.updateForm.value);
+    window.location.reload();
   }
   openDeleteDialog(contactID:any){
     const dialogRef = this.dialog.open(this.callDeleteDialog);
@@ -56,6 +57,7 @@ export class ManageContactComponent implements OnInit {
         this.contactService.delete(contactID);
         else if(res=='no')
         console.log("Thank you");
+        window.location.reload();
       }
     })
   }

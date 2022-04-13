@@ -17,6 +17,7 @@ export class CreateSliderComponent implements OnInit {
   }
   save() {
     this.sliderService.createSlider(this.CreateForm.value);
+    window.location.reload();
   }
   uploadFile(file: any) {
     if (file.length == 0) {

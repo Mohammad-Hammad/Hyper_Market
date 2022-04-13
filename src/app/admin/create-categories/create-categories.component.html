@@ -3,7 +3,7 @@
     <form [formGroup]="CreateForm" class="example-form">
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Enter Category Name</mat-label>
-          <input type="text" matInput formControlName="catName" placeholder="enter">
+          <input type="text" matInput formControlName="catName" placeholder="Enter">
          
           <mat-error *ngIf="CreateForm.controls['catName'] hasError('required')">
             Category is <strong>required</strong>

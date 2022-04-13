@@ -7,8 +7,8 @@
         <img  src="../../assets/images/{{sliderService.data[1].image}}"  width="1500px" alt="Random first slide">
       </div>
       <div class="carousel-caption">
-        <h1 style="color: goldenrod;">The Best Products</h1>
-        <h2 style="color: black;">Have fun with the most satisfying customer service</h2>
+        <h1 style="color: goldenrod;">{{homepageService.data[0].ftext}}</h1>
+        <h2 style="color: black;">{{homepageService.data[6].ftext}}</h2>
       </div>
     </ng-template>
     <ng-template ngbSlide>
@@ -16,8 +16,8 @@
         <img src="../../assets/images/{{sliderService.data[2].image}}"  width="1500px" height="1200px" alt="Random second slide">
       </div>
       <div class="carousel-caption">
-        <h3>Second slide label</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <h1 style="color: goldenrod;">{{homepageService.data[7].ftext}}</h1>
+        <h2 style="color: black;">{{homepageService.data[2].ftext}}</h2>
       </div>
     </ng-template>
     <ng-template ngbSlide>
@@ -25,8 +25,8 @@
         <img src="../../assets/images/{{sliderService.data[0].image}}"  width="1500px" alt="Random third slide">
       </div>
       <div class="carousel-caption">
-        <h3>Third slide label</h3>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        <h1 style="color: goldenrod;">{{homepageService.data[4].ftext}}</h1>
+        <h2 style="color: black;">{{homepageService.data[1].ftext}}</h2>
       </div>
     </ng-template>
   </ngb-carousel>
@@ -36,7 +36,7 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="section-title text-center">
-            <h1 class="display-5 mb-5">Categories</h1>
+            <h1 class="display-5 mb-5">{{homepageService.data[5].ftext}}</h1>
         </div>
         <div class="row g-4" >
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s" *ngFor="let category of home.product">
@@ -58,7 +58,7 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="section-title text-center">
-            <h1 class="display-5 mb-5"> Products </h1>
+            <h1 class="display-5 mb-5"> {{homepageService.data[3].ftext}} </h1>
         </div>
         <div class="row g-3"*ngFor="let item of home.product">
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s"*ngFor="let item2 of item.products" >
@@ -90,7 +90,7 @@
                     <div class="section-title text-start">
                         <h1 class="display-5 mb-4">Contact Us</h1>
                     </div>
-                    <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                    <p class="mb-4">Contact Us about anything you need us to know or investigate about , Feel free the inform us with anything</p>
                     <form [formGroup]="CreateForm">
                         <div class="row g-3">
                             <div class="col-md-6">
@@ -126,10 +126,7 @@
             </div>
             <div class="col-lg-6 pe-lg-0" style="min-height: 400px;">
                 <div class="position-relative h-100">
-                    <iframe class="position-absolute w-100 h-100" style="object-fit: cover;"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-                    frameborder="0" allowfullscreen="" aria-hidden="false"
-                    tabindex="0"></iframe>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3385.0524841234746!2d35.85546941444572!3d31.959472832526867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca10efc21a31d%3A0x6e8f71c86248f350!2s7th%20Cir.%2C%20Amman!5e0!3m2!1sen!2sjo!4v1649658919890!5m2!1sen!2sjo" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -137,39 +134,39 @@
 </div>
 <!-- Contact End -->
 <!-- Testimonial Starts -->
-<section>
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-10 col-xl-8 text-center">
-        <h3 class="mb-4">Testimonials</h3>
-        <p class="mb-4 pb-2 mb-md-5 pb-md-0">Try and Post your Testimonials about our Website , And see what other customers have to say
-        </p>
+
+ <!-- Testimonial Starts -->
+<div class="container-xxl py-5">
+  <div class="container">
+      <div class="section-title text-center">
+          <h1 class="display-5 mb-5"> Testimonial</h1>
       </div>
-    </div>
-    
-    <button class="button3" class mat-button (click)="openDialog()">Post Your Testimonial</button>
-  </section>
-  
-  <section class="policy-product">
-  <owl-carousel-o [options]="customOptions">
-    <ng-template *ngFor="let ss of testimonial.data" carouselSlide>
-      <div class="col-md-9 mb-8 mb-md-0">
-        <div class="card testimonial-card">
-          <div class="card-up" style="background-color: #7a81a8;"></div>
-          <div class=" ">
-            <img src="../../assets/images/{{ss.image}}" height="150" width="150" class="  img-fluid" />
+      <div class="row " >
+          <div class="col-md-6 col-lg-4 wow fadeInUp coll-lg-4" data-wow-delay="0.1s">
+            <section class="policy-product ">
+              <owl-carousel-o  [options]="customOptions">
+                <ng-template *ngFor="let ss of testimonial.data" carouselSlide>
+                  <div class="col-md-9 mb-8 mb-md-0">
+                    <div class="card testimonial-card">
+                      <div class="card-up" style="background-color: #7a81a8;"></div>
+                      <div class=" ">
+                        <img src="../../assets/images/{{ss.image}}" height="150" width="150" class="  img-fluid" />
+                      </div>
+                      <div class="card-body text-center">
+                        <h4 class="mb-4">{{ss.name}}</h4>
+                        <hr />
+                        <p class="dark-grey-text mt-4">
+                          <i class="fas fa-quote-left pe-2" ></i>{{ss.comment}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </owl-carousel-o>
+              </section>
           </div>
-          <div class="card-body text-center">
-            <h4 class="mb-4">{{ss.name}}</h4>
-            <hr />
-            <p class="dark-grey-text mt-4">
-              <i class="fas fa-quote-left pe-2"></i>{{ss.comment}}
-            </p>
-          </div>
-        </div>
       </div>
-    </ng-template>
-  </owl-carousel-o>
-  
-  </section>
+  </div>
+</div>
   
 <app-footer></app-footer>

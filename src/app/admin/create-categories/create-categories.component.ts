@@ -21,6 +21,7 @@ export class CreateCategoriesComponent implements OnInit {
     console.log(this.homeService.data.catName)
     console.log(this.homeService.data.imageName)
     this.homeService.createCategory(this.CreateForm.value);
+    window.location.reload();
   }
   uploadFile(file:any){
     if(file.length==0){

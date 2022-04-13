@@ -2,79 +2,49 @@
   <app-dashboard></app-dashboard>
   <div class="content-wrapper"> <!--204-->
     <div class="container-fluid">
-      <button class="button3" mat-button (click)="openDialog()">Create New Product</button>
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <thead>
-        <tr>
-            <th>Delete Operation</th>
-            <th>Update Operation</th>
-            <th>Delete Operation</th>
-            <th>Update Operation</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let arr of homepageService.data">
-            <td>
-                {{arr.ftext}}
-            </td>
-            <td>
-              {{arr.stext}}
-          </td>
-          <td>
-              {{arr.ctext}}
-          </td>
-          <td>
-              {{arr.ptext}}
-          </td> <td>
-            <button class="button2" (click)="openDeleteDialog(arr.homeId)">Delete</button>
-        </td>
-        <td>
-            <button class="button1" (click)="openUpdateDialog(arr.homeId,arr.ftext,arr.stext,arr.ctext,arr.ptext)">Update</button>
-        </td>
-        </tr>
-        </tbody>
-    </table>
-    <ng-template #callUpdateDialog>
-      <form [formGroup]="updateForm" (ngSubmit)="updateCategory()">
-          <mat-form-field class="example-full-width" appearance="fill">
+     
+      <div class="row">
   
-              <mat-label>Enter Admin Name</mat-label>
-              <input type="text" matInput formControlName="FirstText"[(ngModel)]="home.FirstText" placeholder="Enter catName">
-  
-            </mat-form-field>
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-success mb-3 o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-sliders" aria-hidden="true"></i>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-  
-              <mat-label>Enter Admin Name</mat-label>
-              <input type="text" matInput formControlName="SecondText"[(ngModel)]="home.SecondText" placeholder="Enter catName">
-  
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="fill">
-  
-              <mat-label>Enter Admin Name</mat-label>
-              <input type="text" matInput formControlName="CatName"[(ngModel)]="home.CatName" placeholder="Enter catName">
-  
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="fill">
-  
-              <mat-label>Enter Admin Name</mat-label>
-              <input type="text" matInput formControlName="ProdName"[(ngModel)]="home.ProdName" placeholder="Enter catName">
-  
-            </mat-form-field>
-          <button>Update</button>
-        </form>
-        </ng-template>
-  
-  <ng-template #callDeleteDialog>
-  <h2>Are you sure you want to delete this item?</h2>
-  <mat-dialog-actions align="end">
-      <button mat-button mat-dialog-close="no">No</button>
-      <button mat-button  mat-dialog-close="yes">Yes</button>
-    </mat-dialog-actions>
-  </ng-template>
-
+              </div>
+              <div class="mr-5">Manage Home Sliders</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="admin/manageSlider">
+              <span class="float-left" >Go To Manage Section</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+    
+    
+    
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-secondary mb-3  o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fa fa-fw fa-list"></i>
+                  </div>
+                  <div class="mr-5">Manage Home Texts</div>
+                </div>
+                <a class="card-footer text-white clearfix small z-1" href="admin/manageTexts">
+                  <span class="float-left">Go To Manage Section</span>
+                  <span class="float-right">
+                    <i class="fa fa-angle-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+    
+    
+    
+        </div>
   
     </div>
     <footer class="sticky-footer">
