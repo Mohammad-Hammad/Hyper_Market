@@ -67,7 +67,7 @@ submit(username:any,password:any){
       //hide spinner
       this.spinner.hide();
       //toaster
-      this.toaster.success(res)
+      this.toaster.success('Registered')
       }, err=>{ // في حال كان في error
         this.spinner.hide();
         this.toaster.error('Dont Send Data');
@@ -77,7 +77,7 @@ submit(username:any,password:any){
 uploadAttachment(file:FormData){
 
 debugger;
-this.http.post('https://localhost:44338/api/User/UploadImg',file).subscribe((res:any)=>{
+this.http.post('https://localhost:44338/api/User/UploadImgCustomer',file).subscribe((res:any)=>{
 
 this.display_Image=res.imageName;  
 debugger;  

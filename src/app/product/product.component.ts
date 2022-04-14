@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HomeService } from '../service/home.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { HomeService } from '../service/home.service';
 })
 export class ProductComponent implements OnInit {
 
-  constructor(public home :HomeService) { }
+  constructor(public home :HomeService,private router:Router) { }
   proName:string ="";
   catName:number=0;
   ngOnInit(): void {
@@ -35,27 +36,22 @@ export class ProductComponent implements OnInit {
   AddProduct(Id:number){
 
     if(this.customer_role == 2){
-
-     
-
           const body={
 
       customerId:this.customer_Id,
 
       ProId:Id
-
     }
 
    this.home.AddProductCart(body);
-
-   location.reload();
+  
 
   }else{
 
     alert(" Please login ");
 
   }
-
+  this.router.navigate(['product'])
 }
 
 }

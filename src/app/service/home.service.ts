@@ -104,6 +104,7 @@ this.spinner.hide();
     console.log("id"+JSON.stringify(order));
     
     console.log("orde///: "+JSON.stringify(order));
+
     this.http.post('https://localhost:44338/api/user/addOrder',order).subscribe((res:any)=>{
       console.log(res);
       // this.order=res;
@@ -130,8 +131,9 @@ this.spinner.hide();
   }
   createCredits(data:any){
     this.spinner.show();
+
     console.log("credit "+JSON.stringify(data) );
-    //hit api
+
     this.http.post('https://localhost:44338/api/user/newCredite',data).subscribe((res:any)=>{
       this.createCredit=res;
       // this.creditid=res
@@ -148,9 +150,8 @@ this.spinner.hide();
   }
 
   GetAmount(id:number){
-    //show spinner
     this.spinner.show();
-    //hit api
+
     this.http.get('https://localhost:44338/api/user/CreditAmount/'+id).subscribe((res)=>{
       console.log('inside get amount '+JSON.stringify(res));
       
@@ -168,31 +169,44 @@ this.spinner.hide();
   }
 
   getAll(){
-    //show spinner
+    
     this.spinner.show();
-    //hit api
+    
     this.http.get('https://localhost:44338/api/Admin').subscribe((res)=>{
-      this.data=res;
-      this.spinner.hide();  
-      this.toastr.success('Retrived');
-    }, err=>{
-      this.spinner.hide()
-      this.toastr.error("Something went wrong")
+    
+    this.data=res;
+    
+    this.spinner.hide();  
+    
+    this.toastr.success('Retrived');
+    
+  }, err=>{
+  
+    this.spinner.hide()
+  
+    this.toastr.error("Something went wrong")
     })
   }
 
 
   createCategory(data:any){
     this.spinner.show();
-    //hit api
+    
     data.imageName=this.display_Image;
+    
     this.http.post('https://localhost:44338/api/Admin',data).subscribe((res:any)=>{
-      this.data=res;
-      this.spinner.hide();
-      this.toastr.success('Retrived');
-    }, err=>{
-      this.spinner.hide()
-      this.toastr.error("Something went wrong")
+    
+    this.data=res;
+    
+    this.spinner.hide();
+    
+    this.toastr.success('Retrived');
+    
+  }, err=>{
+  
+    this.spinner.hide()
+  
+    this.toastr.error("Something went wrong")
     })
   }
 
@@ -227,16 +241,16 @@ this.spinner.hide();
   product:any=[];
   getCategoryAndProduct()
   {
-//show spinner
 this.spinner.show();
-//hits api
+
 this.http.get('https://localhost:44338/api/User/GetAll').subscribe((res)=>{
+
 this.product=res;
-//hide spinner
+
 this.spinner.hide();
-//toaster
+
 this.toastr.success('Data Retrieved !!')
-}, err=>{ // في حال كان في error
+}, err=>{ 
   this.spinner.hide();
   this.toastr.error('Something want worning !!');
 })
@@ -266,16 +280,16 @@ this.toastr.success('Data Retrieved !!')
 
     getAllProduct()
     {
-  //show spinner
   this.spinner.show();
-  //hits api
+
   this.http.get('https://localhost:44338/api/User/getAllProduct').subscribe((res)=>{
+
   this.product=res;
-  //hide spinner
+
   this.spinner.hide();
-  //toaster
+
   this.toastr.success('Data Retrieved !!')
-  }, err=>{ // في حال كان في error
+  }, err=>{ 
     this.spinner.hide();
     this.toastr.error('Something want worning !!');
   })
@@ -283,16 +297,15 @@ this.toastr.success('Data Retrieved !!')
     }
     getCart(id:number)
     {
-  //show spinner
   this.spinner.show();
-  //hits api
+ 
   this.http.get('https://localhost:44338/api/User/getcart/'+id).subscribe((res)=>{
   this.product=res;
-  //hide spinner
+ 
   this.spinner.hide();
-  //toaster
+ 
   this.toastr.success('Data Retrieved !!')
-  }, err=>{ // في حال كان في error
+  }, err=>{ 
     this.spinner.hide();
     this.toastr.error('Something want worning !!');
   })
@@ -326,16 +339,14 @@ AddProductCart(data :any){
 total:any=[];
 getTotalCart(id:number)
 {
-//show spinner
 this.spinner.show();
-//hits api
 this.http.get('https://localhost:44338/api/User/GetTotalCustomer/'+id).subscribe((res)=>{
 this.total=[res];
-//hide spinner
+
 this.spinner.hide();
-//toaster
+
 this.toastr.success('Data Retrieved !!')
-}, err=>{ // في حال كان في error
+}, err=>{ 
 this.spinner.hide();
 this.toastr.error('Something want worning !!');
 })

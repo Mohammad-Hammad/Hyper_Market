@@ -72,7 +72,6 @@ export class HomeComponent implements OnInit {
       ProId:Id
     }
    this.home.AddProductCart(body);
-   location.reload();
   }else{
     alert(" Please login ");
   }
