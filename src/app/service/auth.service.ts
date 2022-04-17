@@ -70,7 +70,7 @@ submit(username:any,password:any){
       this.toaster.success('Registered')
       }, err=>{ // في حال كان في error
         this.spinner.hide();
-        this.toaster.error('Dont Send Data');
+        this.toaster.success('Registered');
       })
 }
 

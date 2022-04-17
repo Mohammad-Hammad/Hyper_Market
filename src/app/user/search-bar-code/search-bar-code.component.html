@@ -7,7 +7,7 @@
         
         <div class="form-group mx-sm-3 mb-2">
           <label for="input" class="sr-only">Bar Code</label>
-          <input [value]="barcode" (change)="InputValue($event)"  type="text" class="form-control" id="input" placeholder="Bar Code">
+          <input (change)="InputValue($event)"  type="text" class="form-control" id="input" placeholder="Barcode Scan">
         </div>
         <input value="Search" type="button" (click)="search()" class="btn btn-primary mb-2">
         <!-- <button type="submit" (click)="search()" class="btn btn-primary mb-2">Search</button> -->

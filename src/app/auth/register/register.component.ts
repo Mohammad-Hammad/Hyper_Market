@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
 
       sendData(){
         this.auth.registerUser(this.RegisterUser.value);
-        this.router.navigate(['login']);
+        this.router.navigate(['auth/login']);
       }
 
 }
