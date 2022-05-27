@@ -39,29 +39,25 @@
 
 
   <ng-template #callUpdateDialog>
-    <form [formGroup]="updateForm" (ngSubmit)="updateAbout()">
-
-
       <input type="file" #file placeholder="choose image"
       formControlName="image" [(ngModel)]="aboutarr.image" (change)="uploadFile(file.files)"
       style="display: none;"
       >
       <button (click)="file.click()">Upload Image</button>
-
-
-
+    <form [formGroup]="updateForm" (ngSubmit)="updateAbout()">
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Enter first text</mat-label>
             <input type="text" matInput formControlName="FirstText"[(ngModel)]="aboutarr.ftext" placeholder="Enter first text">
           </mat-form-field>
 
-
+        </form>
+        <form [formGroup]="updateForm" (ngSubmit)="updateAbout()">
          <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Enter second text</mat-label>
           <input type="text" matInput formControlName="SecondText"[(ngModel)]="aboutarr.stext" placeholder="Enter second text">
         </mat-form-field>
-
-
+      </form>
+      <form [formGroup]="updateForm" (ngSubmit)="updateAbout()">
         <button>Update</button>
       </form>
       </ng-template>

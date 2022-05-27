@@ -34,8 +34,8 @@ export class ManageAboutComponent implements OnInit {
     this.aboutarr={
       aboutId:aboutid,
       image:img,
-      FirstText:firsttext,
-      SecondText:secondtext,
+      ftext:firsttext,
+      stext:secondtext,
 
     }
     this.updateForm.controls['aboutId'].setValue(aboutid);

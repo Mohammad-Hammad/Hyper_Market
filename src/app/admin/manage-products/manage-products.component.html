@@ -61,7 +61,8 @@
               <input type="text" matInput formControlName="proName"[(ngModel)]="product.proName" placeholder="Enter proName">
   
             </mat-form-field>
-
+</form>
+<form [formGroup]="updateForm" (ngSubmit)="updateCategory()">
                <mat-form-field class="example-full-width" appearance="fill">
   
             <mat-label>Enter Product Sale</mat-label>
@@ -69,7 +70,8 @@
 
           </mat-form-field>
 
-
+</form>
+<form [formGroup]="updateForm" (ngSubmit)="updateCategory()">
             <mat-form-field class="example-full-width" appearance="fill">
   
               <mat-label>Enter Product Price</mat-label>
@@ -77,11 +79,11 @@
   
             </mat-form-field>
 
-     
+</form>
 
 
            
-
+<form [formGroup]="updateForm" (ngSubmit)="updateCategory()">
         
           <mat-form-field class="example-full-width" appearance="fill">
   
@@ -89,23 +91,24 @@
             <input type="number" matInput formControlName="categoryID" [(ngModel)]="product.categoryID" placeholder="Enter CategoryID">
 
           </mat-form-field>
-
+</form>
+<form [formGroup]="updateForm" (ngSubmit)="updateCategory()">
           <mat-form-field class="example-full-width" appearance="fill">
   
             <mat-label>Enter Product barCode</mat-label>
             <input type="text" matInput formControlName="barCode"[(ngModel)]="product.barCode" placeholder="Enter barCode">
 
           </mat-form-field>
-
+</form>
           <input type="file" #file placeholder="choose image"
           formControlName="imageName" [(ngModel)]="product.imageName" (change)="uploadFile(file.files)"
           style="display: none;"
           >
           <button (click)="file.click()">Upload Image</button>
-
+          <form [formGroup]="updateForm" (ngSubmit)="updateCategory()">
        
           <button>Update</button>
-        </form>
+        </form> 
         </ng-template>
 
     <ng-template #callDeleteDialog>

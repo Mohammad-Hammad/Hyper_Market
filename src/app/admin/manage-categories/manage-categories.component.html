@@ -41,12 +41,13 @@
               <input type="text" matInput formControlName="catName"[(ngModel)]="category.catName" placeholder="Enter catName">
   
             </mat-form-field>
-      
+          </form>
           <input type="file" #file placeholder="choose image"
           formControlName="imageName" [(ngModel)]="category.imageName" (change)="uploadFile(file.files)"
           style="display: none;"
           >
           <button (click)="file.click()">Upload Image</button>
+          <form [formGroup]="updateForm" (ngSubmit)="updateCategory()">
           <button>Update</button>
         </form>
         </ng-template>

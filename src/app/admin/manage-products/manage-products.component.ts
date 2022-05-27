@@ -40,7 +40,7 @@ export class ManageProductsComponent implements OnInit {
       sale:Sale,
       proPrice:proprice,
       categoryID:categoryid,
-       barCode:barcode,
+      barCode:barcode,
       imageName:imagename,
     }
     this.updateForm.controls['proID'].setValue(proid);

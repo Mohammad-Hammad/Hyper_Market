@@ -11,8 +11,7 @@
             <th>Email</th>
             <th>Subject</th>
             <th>Message</th>
-            <th>Delete Operation</th>
-            <th>Update Operation</th>
+            <th>Delete Operation</th> 
         </tr>
         </thead>
         <tbody>
@@ -33,10 +32,7 @@
             {{product.msg}}
         </td> <td>
           <button class="button2" (click)="openDeleteDialog(product.contactID)">Delete</button>
-      </td>
-      <td>
-        <button class="button1" (click)="openUpdateDialog(product.contactID,product.name,product.mail,product.subjct,product.msg)">Update</button>
-    </td>
+      </td> 
      </tr>
     </tbody>
     </table>
